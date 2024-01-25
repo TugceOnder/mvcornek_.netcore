@@ -6,5 +6,7 @@
         //Bütün dataları bir arada tutacağımız sınıf
         public List<Category> CategoryList { get; set; }
         public List<Product> ProductList { get; set; }
+
+        public string TitleOfProductList { get; set; }
     }
 }

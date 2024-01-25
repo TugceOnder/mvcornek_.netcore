@@ -52,17 +52,32 @@
             <div class="col-3">
                 <h3>Kategoriler</h3>
                 <div class="list-group">
-                    <a href="/" class="list-group-item list-group-item-action active">Tümü</a>
-                    @foreach (var item in Model.CategoryList)
+                    @if (ViewBag.ActiveCategoryName == "Tümü")
                     {
-                        <a href="/Home/Index/@item.CategoryId" class="list-group-item list-group-item-action">@item.CategoryName</a>
+                        <a href="/" class="list-group-item list-group-item-action active">Tümü</a>
+                    }
+                    else
+                    {
+                        <a href="/" class="list-group-item list-group-item-action">Tümü</a>
                     }
 
+                    @foreach (var item in Model.CategoryList)
+                    {
+                        if (item.CategoryName == ViewBag.ActiveCategoryName)
+                        {
+                            <a href="/Home/Index/@item.CategoryId" class="list-group-item list-group-item-action active">@item.CategoryName</a>
+                        }
+                        else
+                        {
+                            <a href="/Home/Index/@item.CategoryId" class="list-group-item list-group-item-action">@item.CategoryName</a>
+                        }
 
+                    }
                 </div>
             </div>
             <div class="col-9">
-                <h3>Ürünler</h3>
+  @*               <h3>@Model.TitleOfProductList</h3> *@
+                    <h3>@ViewBag.Tugce</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -77,7 +92,10 @@
                         {
                             <tr>
                                 <th scope="row">@item.ProductId</th>
-                                <td>@item.ProductName</td>
+                                <td>
+                                    <a href="/Product/Details/@item.ProductId">  @item.ProductName</a>
+                                 
+                                    </td>
                                 <td>@item.UnitPrice</td>
                                 <td>@item.UnitsInStock</td>
                             </tr>
