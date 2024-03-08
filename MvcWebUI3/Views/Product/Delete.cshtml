@@ -1,0 +1,42 @@
+﻿@model Product
+
+<div class="col-2"></div>
+<div class="col-8">
+    <h3>Aşağıdaki Ürün Silinecektir!!!!</h3>
+    <table class="table table-bordered">
+        <tr>
+            <td>Ürün Adı</td>
+            <td> : </td>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <td>Ürün Fiyat</td>
+            <td> : </td>
+            <td>@Model.UnitPrice</td>
+        </tr>
+        <tr>
+            <td>Ürün Stok</td>
+            <td> : </td>
+            <td>@Model.UnitsInStock</td>
+        </tr>
+        <tr>
+            <td>Ürün Kategorisi</td>
+            <td> : </td>
+            <td>@Model.Category.CategoryName</td>
+        </tr>
+        <tr>
+            <td>Ürün Tedarikci</td>
+            <td> : </td>
+            <td>@Model.Supplier.CompanyName</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/" class="btn btn-success">VAZGEÇ</a>
+            </td>
+            <td colspan="2">
+                <a href="/Product/DeleteProduct/@Model.ProductId" class="btn btn-danger">SİL GİTSİN</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="col-2"></div>

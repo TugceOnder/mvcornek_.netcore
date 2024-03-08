@@ -1,0 +1,56 @@
+﻿@model ProductNewModel
+<div class="col-2"></div>
+<div class="col-8">
+
+    <div>@Model.OperationMessage</div>
+    <h3>Yeni Ürün Ekleme Formu</h3>
+    <form class="row g-3" action="/Product/New" method="post">
+        <div class="col-md-12">
+            <label class="form-label">Ürün Adı</label>
+            <input type="text" class="form-control" placeholder="Ürün Adı Giriniz" name="PName">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label">Fiyat</label>
+            <input type="text" class="form-control" placeholder="Ürün Fiyat" name="Uprice">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Stok</label>
+            <input type="text" class="form-control" placeholder="Ürün Stok Bilgisi" name="UStock">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Kategorisi</label>
+            <select name="CId"  id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                @foreach (var item in Model.CategoryList)
+                {
+                    <option value ="@item.CategoryId">@item.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label">Tedarikçisi</label>
+            <select name = "SId" id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                @foreach (var item in Model.SupplierList)
+                {
+                    <option value="@item.SupplierId">@item.CompanyName</option>
+                }
+            </select>
+        </div>
+
+         <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck" name="Discontinued">
+                 Durduruldu
+                </label>
+            </div>
+        </div>
+       
+        <div class= "col-12">
+            <button type ="submit" class="btn btn-success"> Kaydet </button>
+        </div>
+    </form>
+</div>
+<div class="col-2"></div>

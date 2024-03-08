@@ -1,1 +1,67 @@
-﻿
+﻿@model Product
+
+<div class="col-12">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">@Model.ProductName</h4>
+        <table class="table table-bordered">
+            <tr>
+                <td>Fiyat </td>
+                <td>:</td>
+                <td>@Model.UnitsInStock</td>
+
+            </tr>
+
+            <tr>
+                <td>Stok </td>
+                <td>:</td>
+                <td>@Model.UnitsInStock</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3">Kategori Bilgileri </td>
+            </tr>
+            <tr>
+                <td>Adı </td>
+                <td>:</td>
+                <td>@Model.Category.CategoryName</td>
+
+            </tr>
+
+            <tr>
+                <td>Açıklaması </td>
+                <td>:</td>
+                <td>@Model.Category.Description</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3">Tedarikçi Bilgileri </td>
+            </tr>
+
+
+            <tr>
+                <td>Adı </td>
+                <td>:</td>
+                <td>@Model.Supplier.CompanyName</td>
+
+            </tr>
+
+            <tr>
+                <td>Ülke </td>
+                <td>:</td>
+                <td>@Model.Supplier.Country</td>
+
+            </tr>
+
+            <tr>
+                <td>Şehir </td>
+                <td>:</td>
+                <td>@Model.Supplier.City</td>
+
+            </tr>
+        </table>
+        <hr>
+        <input type="button" class="btn btn-success" value="Düzenle" />
+    </div>
+</div>
